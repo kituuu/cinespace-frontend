@@ -23,13 +23,10 @@ export default function LoginPage() {
     try {
       setLoading(true);
       const response = await axios.post("/api/users/login", user);
-      // console.log(response);
-      // console.log(user);
       setUsernotfound((usernotfound: any) => false);
       setErrori((errori: any) => response.data.message);
       router.push("/");
     } catch (error: any) {
-      // console.log("Kuch kadbadi ho gyi hai bro", error.message);
       console.log(error);
       let msg = "";
       if (error.message.includes("401")) {

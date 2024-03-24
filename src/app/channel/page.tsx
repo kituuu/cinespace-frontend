@@ -20,7 +20,6 @@ export default function Subscriptions({ searchParams }: { searchParams: any }) {
     axios
       .get(`${BACKEND_URL}/user?username=${user}`)
       .then((res) => {
-        console.log(res.data[0].vidUpload);
         setVidUpl(res.data[0].vidUpload);
       })
       .catch((e) => {
@@ -31,11 +30,9 @@ export default function Subscriptions({ searchParams }: { searchParams: any }) {
   useEffect(() => {
     let vidArray: Video[] = [];
     for (let his of videoUpl) {
-      console.log(his);
       axios
         .get(`${DENO_URL}/video/${his}`)
         .then((res) => {
-          console.log("hi", res.data.data.document);
           vidArray.push(res.data?.data.document);
           setVidUplVideo(vidArray);
         })
@@ -43,12 +40,9 @@ export default function Subscriptions({ searchParams }: { searchParams: any }) {
           console.log(e);
         });
     }
-    console.log("well", vidArray);
   }, [videoUpl]);
   useEffect(() => {
-    console.log(vidUplVideo);
     axios.get(`${BACKEND_URL}/user?username=${user}`).then((res) => {
-      console.log();
       if (vidUplVideo.length == res.data[0].vidUpload.length) setLoading(false);
     });
   }, [vidUplVideo]);

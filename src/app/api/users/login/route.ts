@@ -12,7 +12,6 @@ export async function POST(request: NextRequest) {
     const reqDataBody = await request.json();
     // destructuring
     const { email, password } = reqDataBody;
-    console.log(reqDataBody);
     // checking if user already exists
     const findResult = await User.findOne({ email });
     if (!findResult) {

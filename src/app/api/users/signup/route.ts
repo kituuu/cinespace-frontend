@@ -12,7 +12,6 @@ export async function POST(request: NextRequest) {
     const { username, email, password } = reqBody;
 
 
-    // console.log(reqBody);
 
 
     // validation

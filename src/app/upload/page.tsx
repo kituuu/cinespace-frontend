@@ -23,17 +23,12 @@ export default function UploadPage() {
       uploadedBy: "pandameetups",
     };
     axios.post(`${DENO_URL}/video`, video).then((res) => {
-      console.log(res);
     });
   }
 
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
 
-  console.log(defaultLink);
-  console.log(customLink);
-  console.log("title", title);
-  console.log(desc);
 
   return (
     <main className="flex min-h-screen w-[80%] bg-red-50 ml-10 flex-col p-5">

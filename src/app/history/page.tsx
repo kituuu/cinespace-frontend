@@ -17,7 +17,6 @@ export default function History() {
     axios
       .get(`${BACKEND_URL}/user?username=casper`)
       .then((res) => {
-        console.log();
         setHistory(res.data[0].history);
       })
       .catch((e) => {
@@ -28,11 +27,9 @@ export default function History() {
   useEffect(() => {
     let vidArray: Video[] = [];
     for (let his of history) {
-      console.log(his);
       axios
         .get(`${DENO_URL}/video/${his}`)
         .then((res) => {
-          console.log("hi", res.data.data.document);
           vidArray.push(res.data?.data.document);
           setHisVideo(vidArray);
         })
@@ -41,15 +38,12 @@ export default function History() {
         });
 
     }
-    console.log("well",vidArray);
     
   }, [history]);
 useEffect(()=>{
-  console.log(hisVideo);
   axios
       .get(`${BACKEND_URL}/user?username=casper`)
       .then((res) => {
-        console.log();
         if(hisVideo.length==res.data[0].history.length) setLoading(false)
       })
   

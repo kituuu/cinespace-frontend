@@ -22,7 +22,6 @@ export default function Subscriptions() {
   }, []);
 
   useEffect(() => {
-    console.log(username);
     let userArray: User[] = [];
     for (let user of username) {
       axios.get(`${BACKEND_URL}/user?username=${user}`).then((res) => {
@@ -34,9 +33,7 @@ export default function Subscriptions() {
 
   useEffect(() => {
     if (userInfo.length == username.length) {
-      console.log(userInfo);
     } else {
-      console.log("Loading...");
       setUsername([...username]);
     }
   }, [userInfo]);

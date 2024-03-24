@@ -33,7 +33,6 @@ const ThumbnailUpload = () => {
       },
       (error: any, result: any) => {
         if (!error && result && result.event === "success") {
-          console.log("Done! Here is the image info: ", result.info);
           setImgPublicId(result.info.public_id);
         }
       }
