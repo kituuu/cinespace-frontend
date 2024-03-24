@@ -1,8 +1,9 @@
+import { MONGO_URL } from "@/contants";
 import mongoose from "mongoose";
 
 export async function connect() {
   try {
-    mongoose.connect(process.env.MONGO_URL!);
+    mongoose.connect(MONGO_URL!);
     const connection = mongoose.connection;
     connection.on("connected", () => {
       console.log("MongoDB Connected");

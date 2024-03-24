@@ -1,9 +1,10 @@
+import { BACKEND_URL } from "@/contants";
 import axios from "axios";
 
 function getAvatar(username:string) {
   try {
     axios
-      .get("http://localhost:10000/user?username=" + username)
+      .get(`${BACKEND_URL}/user?username=casper`)
       .then((res) => {
         return res.data[0].avatar;
       })

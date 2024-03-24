@@ -1,22 +1,19 @@
 "use client";
-import { useUploadContext } from "@/contexts/UploadContext";
-
-import Upload from "@/app/components/VideoUpload";
 import Navbar from "@/components/Navbar/Navbar";
 import Videotypeone from "@/components/Video/Videotypeone";
 import useSidebarStore from "@/global/sideBarStore";
-import "@/styles/main.css";
 import { Video } from "@/utils/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { DENO_URL } from "@/contants";
+import "@/styles/main.css";
 
 export default function Home() {
   const sbactive = useSidebarStore((state) => state.sidebarActive);
   const [data, setData]: [Video[], Function] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/videos").then((res) => {
+    axios.get(`${DENO_URL}/videos`).then((res) => {
       setData(res.data.data.documents);
     });
   }, []);

@@ -7,6 +7,7 @@ import "@/styles/main.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Videotypeone from "../components/Video/Videotypeone";
+import { BACKEND_URL, CLOUDINARY_URL, DENO_URL } from "@/contants";
 
 export default function Subscriptions({ searchParams }: { searchParams: any }) {
   const sbactive = useSidebarStore((state) => state.sidebarActive);
@@ -17,7 +18,7 @@ export default function Subscriptions({ searchParams }: { searchParams: any }) {
   const user = searchParams.username;
   useEffect(() => {
     axios
-      .get("http://localhost:10000/user?username=" + user)
+      .get(`${BACKEND_URL}/user?username=${user}`)
       .then((res) => {
         console.log(res.data[0].vidUpload);
         setVidUpl(res.data[0].vidUpload);
@@ -32,7 +33,7 @@ export default function Subscriptions({ searchParams }: { searchParams: any }) {
     for (let his of videoUpl) {
       console.log(his);
       axios
-        .get("http://localhost:8000/video/" + his)
+        .get(`${DENO_URL}/video/${his}`)
         .then((res) => {
           console.log("hi", res.data.data.document);
           vidArray.push(res.data?.data.document);
@@ -46,7 +47,7 @@ export default function Subscriptions({ searchParams }: { searchParams: any }) {
   }, [videoUpl]);
   useEffect(() => {
     console.log(vidUplVideo);
-    axios.get("http://localhost:10000/user?username=" + user).then((res) => {
+    axios.get(`${BACKEND_URL}/user?username=${user}`).then((res) => {
       console.log();
       if (vidUplVideo.length == res.data[0].vidUpload.length) setLoading(false);
     });
@@ -73,13 +74,13 @@ export default function Subscriptions({ searchParams }: { searchParams: any }) {
                         <Videotypeone
                           key={video._id}
                           id={video._id}
-                          thumbnailPublic={`https://res.cloudinary.com/cinespace/${
+                          thumbnailPublic={`${CLOUDINARY_URL}/${
                             video.thumbnailPublic === video.videoPublic
                               ? "video"
                               : "image"
                           }/upload/v1693681213/${video.thumbnailPublic}.jpg`}
                           channelName={video.uploadedBy}
-                          channelLink={`https://res.cloudinary.com/cinespace/video/upload/v1693681213/${video.videoPublic}`}
+                          channelLink={`${CLOUDINARY_URL}/video/upload/v1693681213/${video.videoPublic}`}
                           channelImg={
                             "https://media.licdn.com/dms/image/D4E03AQGI1ZJx1AywYQ/profile-displayphoto-shrink_800_800/0/1665646742212?e=1699488000&v=beta&t=Td2ujhuMGBT5UARVIpY3gbyKxmOeLF6qL7Qw7bCxhM8"
                           }

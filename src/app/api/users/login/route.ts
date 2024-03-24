@@ -3,6 +3,7 @@ import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { TOKEN_SECRET } from "@/contants";
 
 connect();
 
@@ -42,7 +43,7 @@ export async function POST(request: NextRequest) {
           email: findResult.email,
         };
         // create token
-        const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
+        const token = await jwt.sign(tokenData, TOKEN_SECRET!, {
           expiresIn: "1d",
         });
         // token is created but is not sent to cookies

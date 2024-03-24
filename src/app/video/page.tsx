@@ -22,6 +22,7 @@ import useSidebarStore from "@/global/sideBarStore";
 import { useMediaQuery } from "react-responsive";
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { CLOUDINARY_URL, DENO_URL, PUBLIC_URL } from "@/contants";
 export default function VideoScreen({ searchParams }: { searchParams: any }) {
   const [usercmt, setusercmt] = useState("");
   const [focused, setFocused] = React.useState(false);
@@ -45,7 +46,7 @@ export default function VideoScreen({ searchParams }: { searchParams: any }) {
   const [video, setVideo] = useState<Video>();
   useEffect(() => {
     const fetchVideo = async () => {
-      axios.get(`http://localhost:8000/video/${id}`).then((res) => {
+      axios.get(`${DENO_URL}/video/${id}`).then((res) => {
         setVideo(res.data.data.document);
       });
     };
@@ -56,12 +57,12 @@ export default function VideoScreen({ searchParams }: { searchParams: any }) {
     const newComment: Comment = { comment: usercmt, dislikeCount: 0 };
     const newComments = [newComment, ...oldComments!];
     axios
-      .put(`http://localhost:8000/video/${id}`, {
+      .put(`${DENO_URL}/video/${id}`, {
         comments: newComments,
       })
       .then((res) => {
         const fetchVideo = async () => {
-          axios.get(`http://localhost:8000/video/${id}`).then((res) => {
+          axios.get(`${DENO_URL}/video/${id}`).then((res) => {
             setVideo(res.data.data.document);
           });
         };
@@ -109,7 +110,7 @@ export default function VideoScreen({ searchParams }: { searchParams: any }) {
                 height: "80vh",
                 objectFit: "contain",
               }}
-              src={`https://res.cloudinary.com/cinespace/${
+              src={`${CLOUDINARY_URL}/${
                 video?.thumbnailPublic === video?.videoPublic
                   ? "video"
                   : "image"
@@ -240,7 +241,7 @@ export default function VideoScreen({ searchParams }: { searchParams: any }) {
             onClick={() => {
               toast("Copied to Clipboard!");
               navigator.clipboard.writeText(
-                `${process.env.NEXT_PUBLIC_DOMAIN}/video?id=${
+                `${PUBLIC_URL}/video?id=${
                   video?.videoPublic
                 }&t=${
                   playerRef.current?.getCurrentTime()! != undefined

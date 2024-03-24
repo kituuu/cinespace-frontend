@@ -34,7 +34,6 @@ function Videotypetwo({
           className="thumbnail"
           src={thumbnailPublic}
           alt=""
-          objectFit="contain"
           height={200}
           width={400}
         />

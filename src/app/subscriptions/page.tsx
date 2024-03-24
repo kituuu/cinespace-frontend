@@ -4,10 +4,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "@/styles/main.css";
 import Navbar from "@/components/Navbar/Navbar";
-import { User, Video } from "@/utils/types";
+import { User } from "@/utils/types";
 import { Avatar } from "@mui/material";
-import Videotypeone from "@/components/Video/Videotypeone";
 import { useRouter } from "next/navigation";
+import { BACKEND_URL } from "@/contants";
 
 export default function Subscriptions() {
   const sbactive = useSidebarStore((state) => state.sidebarActive);
@@ -17,7 +17,7 @@ export default function Subscriptions() {
   const router = useRouter()
   useEffect(() => {
     axios
-      .get("http://localhost:10000/user?username=" + "casper")
+      .get(`${BACKEND_URL}/user?username=casper`)
       .then((res) => setUsername(res.data[0].subs));
   }, []);
 
@@ -25,7 +25,7 @@ export default function Subscriptions() {
     console.log(username);
     let userArray: User[] = [];
     for (let user of username) {
-      axios.get("http://localhost:10000/user?username=" + user).then((res) => {
+      axios.get(`${BACKEND_URL}/user?username=${user}`).then((res) => {
         userArray.push(res.data[0]);
         setUserInfo(userArray);
       });

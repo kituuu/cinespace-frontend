@@ -3,17 +3,15 @@ import { useUploadContext } from "@/contexts/UploadContext";
 import VideoUpload from "@/app/components/VideoUpload";
 import ThumbnailUpload from "../components/ImageUpload";
 import { useState } from "react";
-import { Video } from "@/utils/types";
-import useUserStore from "@/global/userStore";
 import axios from "axios";
+import { CLOUDINARY_URL, DENO_URL } from "@/contants";
 
 export default function UploadPage() {
-  const username = useUserStore((state) => state.username);
 
   const { VidpublicId: VidpublicId, ImgpublicId: ImgpublicId } =
     useUploadContext();
-  const defaultLink = `https://res.cloudinary.com/cinespace/video/upload/v1693681213/${VidpublicId}.jpg`;
-  const customLink = `https://res.cloudinary.com/cinespace/image/upload/v1693681213/${ImgpublicId}`;
+  const defaultLink = `${CLOUDINARY_URL}/video/upload/v1693681213/${VidpublicId}.jpg`;
+  const customLink = `${CLOUDINARY_URL}/image/upload/v1693681213/${ImgpublicId}`;
   function handleSubmit(event: any): void {
     //code for uploading to db
     let video = {
@@ -24,7 +22,7 @@ export default function UploadPage() {
       isKids: false,
       uploadedBy: "pandameetups",
     };
-    axios.post("http://localhost:8000/video", video).then((res) => {
+    axios.post(`${DENO_URL}/video`, video).then((res) => {
       console.log(res);
     });
   }
