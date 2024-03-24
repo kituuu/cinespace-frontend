@@ -1,0 +1,54 @@
+.logo {
+  font-weight: 700;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2rem;
+  padding-left: 80px;
+}
+
+.searchinput {
+  font-size: 1.2rem;
+  padding: 0px 10px;
+  height: 42px;
+  border: 1px solid #d5d5d5;
+  border-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: border 0.1s 0.05s;
+}
+
+.searchinput:focus {
+  outline: none;
+  border: 2px solid #b9b9b9;
+}
+
+
+.search {
+  display: flex;
+  border: 1px solid #d5d5d5;
+  background-color: #f8f8f8;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+}
+
+.search:active {
+  background-color: aliceblue;
+  border: 1px solid black;
+}
+
+.search:hover {
+  cursor: pointer;
+  background-color: black;
+}
+
+.searchicon:hover {
+  color: white;
+}
+
+.sidebaractiv {
+
+  padding-left: 200px;
+}

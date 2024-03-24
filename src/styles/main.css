@@ -1,0 +1,22 @@
+.master {
+  padding-right: 20px;
+  padding-top: 80px;
+  padding-left: 90px;
+  z-index: -11;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  justify-content: center;
+  height: 100vh;
+
+}
+
+.master h1 {
+  padding: 0;
+}
+
+.master-active {
+  padding-left: 260px;
+  padding-right: 20px;
+}

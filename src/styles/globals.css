@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  height: max-content;
+} 
+
+/* input {
+  margin-bottom: 1rem;
+  margin-top: 0.2rem;
+  border: 1px solid d5d5d5;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding: 0.5rem;
+  color: black;
+  width: 20rem;
+} */
+html {
+  padding: 0;
+  margin: 0;
+  height: max-content;
+}
+button{
+  margin-top: 2rem;
+  width: fit-content;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 0.5rem;
+  color: blanchedalmond;
+  background-color: black;
+}
+
+.si {
+  margin-top: 1rem;
+  border-radius: 25px;
+  color: rgb(52, 35, 11);
+}

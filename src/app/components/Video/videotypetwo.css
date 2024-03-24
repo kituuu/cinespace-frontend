@@ -1,0 +1,65 @@
+.main {
+  width: 90%;
+  min-width: 300px;
+  padding: 20px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+.info {
+  max-width: 70%;
+  max-height: 200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.title {
+  color: var(--yt-spec-text-primary);
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  overflow: hidden;
+  display: block;
+  -webkit-line-clamp: 1;
+  display: box;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+.thumbnail {
+  width: max-content;
+  min-width: 300px;
+  height: max-content;
+  border-radius: 20px;
+}
+.channel {
+  font-size: 1rem;
+  margin: 10px 10px;
+  font-weight: 400;
+  color: #606060;
+}
+.viewdate {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #606060;
+}
+
+.channeldiv {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+
+.desc {
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.8rem;
+  color: #606060;
+}
