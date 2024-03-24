@@ -1,0 +1,25 @@
+version: '1.0'
+
+networks:
+  cinespace_network:
+    name: cinespace_network
+    driver: bridge
+    external: true
+    
+
+services:
+  cine-frontend-dev:
+    image: cine-frontend-dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: cine-frontend-dev
+    expose:
+      - 3000
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - cinespace_network

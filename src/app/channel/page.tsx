@@ -6,7 +6,7 @@ import "@/styles/main.css";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Videotypeone from "../components/Video/Videotypeone";
+import Videotypeone from "../../components/Video/Videotypeone";
 import { BACKEND_URL, CLOUDINARY_URL, DENO_URL } from "@/contants";
 
 export default function Subscriptions({ searchParams }: { searchParams: any }) {

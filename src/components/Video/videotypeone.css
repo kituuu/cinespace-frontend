@@ -1,0 +1,52 @@
+.main {
+  width: 25%;
+  min-width: 300px;
+
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.text {
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  color: var(--yt-spec-text-primary);
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  overflow: hidden;
+  display: block;
+  /* max-height: 4.4rem; */
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+.thumbnail {
+  /* width: max-content; */
+  height: max-content;
+  height: 257px;
+  align-self: center;
+  object-fit: contain;
+  background: grey;
+  border-radius: 10px;
+}
+.channel {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #606060;
+}
+.viewdate {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #606060;
+}

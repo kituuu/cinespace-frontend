@@ -1,3 +1,4 @@
+import img from "next/image";
 import "@/components/Video/videotypetwo.css";
 import { Avatar } from "@mui/material";
 import Link from "next/link";

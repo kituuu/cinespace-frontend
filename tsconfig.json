@@ -22,11 +22,11 @@
       "@/*":["./src/*"],
       "@/contexts/*": ["./src/contexts/*"],
       "@/utils/*": ["./src/utils/*"],
-      "@/components/*": ["./src/app/components/*"],
+      "@/components/*": ["src/components/*"],
       "@/public/*": ["./public/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/VideoUpload.tsx", "src/app/page.tsx", "src/utils/CloudinaryService.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/VideoUpload.tsx", "src/app/page.tsx", "src/utils/CloudinaryService.js"],
   "exclude": ["node_modules"]
 }
 

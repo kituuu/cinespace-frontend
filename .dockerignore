@@ -1,8 +1,6 @@
 .dockerignore
 
-# Not needed as we are bundling the whole app
 node_modules
-# Log files
 logs
 *.log
 npm-debug.log*
@@ -11,3 +9,4 @@ yarn-debug.log*
 yarn-error.log*
 .next
 .git
+makefile

@@ -1,7 +1,7 @@
 "use client";
 import { useUploadContext } from "@/contexts/UploadContext";
-import VideoUpload from "@/app/components/VideoUpload";
-import ThumbnailUpload from "../components/ImageUpload";
+import VideoUpload from "@/components/VideoUpload";
+import ThumbnailUpload from "../../components/ImageUpload";
 import { useState } from "react";
 import axios from "axios";
 import { CLOUDINARY_URL, DENO_URL } from "@/contants";

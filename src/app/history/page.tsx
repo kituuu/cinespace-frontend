@@ -6,7 +6,7 @@ import "@/styles/main.css";
 import { Video } from "@/utils/types";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Videotypeone from "../components/Video/Videotypeone";
+import Videotypeone from "../../components/Video/Videotypeone";
 import { BACKEND_URL, CLOUDINARY_URL, DENO_URL } from "@/contants";
 export default function History() {
   const sbactive = useSidebarStore((state) => state.sidebarActive);
